@@ -1,3 +1,4 @@
+/*
 'use client';
 
 import { useState, useEffect } from "react";
@@ -155,7 +156,7 @@ export default function Collaborate() {
             } else {
                 handle logic to send the reset link to the user's email
              }
-                */
+                */ /*
              setSuccessInviteMessage('Invitation link sent'); 
              setTimeout(() => {
                 setSuccessInviteMessage('');
@@ -306,7 +307,8 @@ export default function Collaborate() {
 
     return (
         <div className="flex h-screen bg-teal-50">
-            {/* Sidebar */}
+            {/* Sidebar */ //} 
+            /*
             <div className="side_bar w-1/6 bg-white text-black p-4 rounded-lg shadow-lg ">
                 <p className="text-sm font-semibold mb-4 text-teal-800 text-center">Speech to Text Application</p>
                 <ul className="space-y-2">
@@ -438,7 +440,8 @@ export default function Collaborate() {
                     {exportModalOpened && exportModal}
                 </div>
             </div>
-            {/* Collaborators Sidebar */}
+            {/* Collaborators Sidebar */ //}
+            /*
             <div className="collab_bar w-1/6 bg-white p-4 rounded-lg shadow-lg ">
                 <p className="text-sm font-semibold mb-4 text-teal-800 text-center">Collaborators</p>
                 <button
@@ -482,3 +485,4 @@ export default function Collaborate() {
         </div>
     );
 }
+*/

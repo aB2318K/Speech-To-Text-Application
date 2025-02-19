@@ -9,9 +9,8 @@ export default function Profile() {
     useAuth();
     const logout = useLogout();
     const router = useRouter();
-    // Main state variables
-    const [user, setUser] =  useState({});
-    const [userId, setUserId] = useState('');
+    
+    const [userId, setUserId] = useState(''); 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [password, setPassword] = useState('');
@@ -65,7 +64,6 @@ export default function Profile() {
               setLoading(false);
               const fetchUser = async () => {
                 const fetchedUser = await getUserInfo(storedUserId);
-                setUser(fetchedUser);
                 setUserId(storedUserId);
                 if (fetchedUser) {
                     setFirstName(fetchedUser.firstname || "");

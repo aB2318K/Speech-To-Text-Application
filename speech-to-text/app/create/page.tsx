@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth, useLogout } from "../../hooks/page";
-import { io, Socket } from "socket.io-client";
+import { io } from "socket.io-client";
 import { HiMenu } from 'react-icons/hi';
 import { HiMicrophone, HiPlay, HiPause, HiTrash, HiSave, HiBookmark } from "react-icons/hi";
 import { motion } from "framer-motion";
@@ -20,9 +20,7 @@ export default function Create() {
     const [delModalOpened, setDelModalOpened] = useState(false);
     const [saveModalOpened, setSaveModalOpened] = useState(false);
     const [exportModalOpened, setExportModalOpened] = useState(false);
-    const [transcription, setTranscription] = useState("");
     const [speechData, setSpeechData] = useState(""); 
-    const [socket, setSocket] = useState<Socket | null>(null);
     const [speechTitle, setSpeechTitle] = useState("");
     const [recorder, setRecorder] = useState<MediaRecorder | null>(null);
     const [isMediumScreen, setIsMediumScreen] = useState(false);
@@ -125,7 +123,6 @@ export default function Create() {
         if (sessionCount > 0) {
             setSessionEnd(true);
             recorder?.stop();
-            socket?.emit('stopAudio');
             setRecorder(null);
         }
         setSessionCount((state) => state + 1);

@@ -14,7 +14,6 @@ interface Speech {
 export default function Dashboard() {
   useAuth();
   const router = useRouter();
-  const [userId, setUserId] = useState('');
   const logout = useLogout();
   const [loading, setLoading] = useState(true); // Loading state
 
@@ -47,7 +46,6 @@ export default function Dashboard() {
           const storedUserId = localStorage.getItem('userID');
           if (storedUserId && token) {
               setLoading(false);
-              setUserId(storedUserId);
               const fetchSpeeches = async () => {
                 const speeches = await getUserSpeeches(storedUserId);
                 setUserSpeeches(speeches);

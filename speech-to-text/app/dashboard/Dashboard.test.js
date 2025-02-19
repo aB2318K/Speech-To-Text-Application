@@ -9,20 +9,22 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('next/link', () => {
-    return ({ href, children }) => {
-      const router = useRouter();
-      return (
-        <a
-          href={href}
-          onClick={(e) => {
-            e.preventDefault(); 
-            router.push(href); 
-          }}
-        >
-          {children}
-        </a>
-      );
-    };
+  const Component = ({ href, children }) => {
+    const router = useRouter();
+    return (
+      <a
+        href={href}
+        onClick={(e) => {
+          e.preventDefault();
+          router.push(href);
+        }}
+      >
+        {children}
+      </a>
+    );
+  };
+  Component.displayName = 'Link';
+  return Component;
 });
 
 jest.mock('../../hooks/page', () => ({
