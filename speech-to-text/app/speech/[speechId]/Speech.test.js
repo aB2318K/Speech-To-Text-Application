@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Speech from './page.tsx';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useAuth, useLogout } from '../../../hooks/page.tsx';
 
 jest.mock('next/navigation', () => ({
