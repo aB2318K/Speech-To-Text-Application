@@ -18,7 +18,6 @@ export default function Speech() {
   const router = useRouter();
   const [userId, setUserId] = useState('');
   const speechId = params.speechId as string;
-  const [speech, setSpeech] = useState({});
   const [speechTitle, setSpeechTitle] = useState("");
   const [speechData, setSpeechData] = useState("");
   const [editableTitle, setEditableTitle] = useState("");
@@ -62,7 +61,6 @@ export default function Speech() {
           setUserId(storedUserId);
           const fetchSpeech = async () => {
             const fetchedSpeech = await getSpeech(speechId, storedUserId);
-            setSpeech(fetchedSpeech);
             if (fetchedSpeech) {
               setSpeechTitle(fetchedSpeech.title || "");
               setSpeechData(fetchedSpeech.data || "");

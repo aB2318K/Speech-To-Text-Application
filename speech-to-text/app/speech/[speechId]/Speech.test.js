@@ -10,7 +10,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 jest.mock('next/link', () => {
-  return ({ href, children }) => {
+  const Component = ({ href, children }) => {
     const router = useRouter();
     return (
       <a
@@ -24,6 +24,8 @@ jest.mock('next/link', () => {
       </a>
     );
   };
+  Component.displayName = 'Link';
+  return Component;
 });
 
 jest.mock('../../../hooks/page', () => ({

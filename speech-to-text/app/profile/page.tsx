@@ -9,7 +9,7 @@ export default function Profile() {
     useAuth();
     const logout = useLogout();
     const router = useRouter();
-    
+
     const [userId, setUserId] = useState(''); 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
