@@ -1,12 +1,12 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Speech from './page.tsx';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useAuth, useLogout } from '../../../hooks/page.tsx';
 
 jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
-  useParams: jest.fn(),
+  useParams: jest.fn().mockReturnValue({ speechId: '1' }),
 }));
 
 jest.mock('next/link', () => {
@@ -44,10 +44,6 @@ describe('Speech Component', () => {
     useRouter.mockReturnValue({ push: pushMock });
     useAuth.mockReturnValue({});
     useLogout.mockReturnValue(logoutMock);
-
-    jest.spyOn(require('next/navigation'), 'useParams').mockReturnValue({
-      speechId: '1',
-    });
 
     jest.spyOn(global.Storage.prototype, 'getItem').mockImplementation((key) => {
       if (key === 'token') return 'fake-token';
