@@ -12,15 +12,19 @@ const { createServer } = require('node:http');
 const { Server } = require('socket.io');
 const { SpeechClient } = require('@google-cloud/speech');
 const fs = require('fs');
+const Buffer = require('buffer').Buffer;
 
 const app = express();
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 require('dotenv').config();
 
-//const upload = multer({dest: "uploads/"})
+const base64Credentials = process.env.GOOGLE_APPLICATION_CREDENTIALS;
+
+const credentials = JSON.parse(Buffer.from(base64Credentials, 'base64').toString('utf8'));
+
 const speechClient = new SpeechClient({
-    keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS, 
+  credentials: credentials,  
 });
 
 const server = createServer(app);
