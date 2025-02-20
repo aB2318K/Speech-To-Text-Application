@@ -15,7 +15,7 @@ const fs = require('fs');
 const Buffer = require('buffer').Buffer;
 
 const app = express();
-app.use(cors({ origin: 'https://speech-to-text-application.onrender.com/' }));
+app.use(cors({ origin: 'https://speech-to-text-application.onrender.com' }));
 app.use(express.json());
 require('dotenv').config();
 
