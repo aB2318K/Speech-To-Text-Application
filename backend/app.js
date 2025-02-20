@@ -15,7 +15,7 @@ const fs = require('fs');
 const Buffer = require('buffer').Buffer;
 
 const app = express();
-app.use(cors({ origin: 'https://speech-to-text-application.onrender.com' }));
+app.use(cors({ origin: 'https://speech-to-text-application.vercel.app' }));
 app.use(express.json());
 require('dotenv').config();
 
@@ -31,7 +31,7 @@ const server = createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://speech-to-text-application.onrender.com",
+        origin: "https://speech-to-text-application.vercel.app",
         methods: ["GET", "POST"],
         allowedHeaders: ['Content-Type'],
     }
