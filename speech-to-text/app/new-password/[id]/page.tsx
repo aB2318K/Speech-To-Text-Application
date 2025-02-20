@@ -41,7 +41,7 @@ export default function NewPassword() {
 
     const getResetToken = async (resetId: string) => { 
         try {
-            const response = await fetch(`http://localhost:9000/reset-password?resetId=${resetId}`, {
+            const response = await fetch(`https://speech-to-text-application.onrender.com/reset-password?resetId=${resetId}`, {
               method: 'GET',
               headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ export default function NewPassword() {
                 };
     
                 // Send password update request
-                const response = await fetch(`http://localhost:9000/reset-password`, {
+                const response = await fetch(`https://speech-to-text-application.onrender.com/reset-password`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${resetToken}`, 

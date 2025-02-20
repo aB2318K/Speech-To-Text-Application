@@ -41,7 +41,7 @@ export default function Profile() {
     const getUserInfo = async (userId: string) => { 
         const token = localStorage.getItem('token');
         try {
-            const response = await fetch(`http://localhost:9000/user?userId=${userId}`, {
+            const response = await fetch(`https://speech-to-text-application.onrender.com/user?userId=${userId}`, {
               method: 'GET',
               headers: {
                 'Authorization': `Bearer ${token}`, 
@@ -137,7 +137,7 @@ export default function Profile() {
                 const userId = localStorage.getItem('userID');
     
                 // Send password update request
-                const response = await fetch(`http://localhost:9000/user/${userId}/password`, {
+                const response = await fetch(`https://speech-to-text-application.onrender.com/user/${userId}/password`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -187,7 +187,7 @@ export default function Profile() {
                 };
                 const token = localStorage.getItem('token');
                 const userId = localStorage.getItem('userID');
-                const response = await fetch(`http://localhost:9000/user/${userId}?infoName=${infoName}`, {
+                const response = await fetch(`https://speech-to-text-application.onrender.com/user/${userId}?infoName=${infoName}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
@@ -225,7 +225,7 @@ export default function Profile() {
             userId: userId, 
         };
         try {
-            const response = await fetch(`http://localhost:9000/user`, {
+            const response = await fetch(`https://speech-to-text-application.onrender.com/user`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

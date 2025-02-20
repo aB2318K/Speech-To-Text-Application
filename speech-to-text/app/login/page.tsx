@@ -47,7 +47,7 @@ export default function LogIn() {
                     password,
                 };
           
-                const response = await fetch('http://localhost:9000/login', {
+                const response = await fetch('https://speech-to-text-application.onrender.com/login', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

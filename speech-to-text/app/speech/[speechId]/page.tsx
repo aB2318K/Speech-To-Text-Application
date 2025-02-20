@@ -37,7 +37,7 @@ export default function Speech() {
   const getSpeech = async (speechId: string, userId: string) => {
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch(`http://localhost:9000/speeches/${speechId}?userId=${userId}`, {
+      const response = await fetch(`https://speech-to-text-application.onrender.com/speeches/${speechId}?userId=${userId}`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -101,7 +101,7 @@ export default function Speech() {
               userId: userId
           };
           const token = localStorage.getItem('token');
-          const response = await fetch(`http://localhost:9000/speeches/${speechId}`, {
+          const response = await fetch(`https://speech-to-text-application.onrender.com/speeches/${speechId}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ export default function Speech() {
         userId: userId, 
     };
     try {
-        const response = await fetch(`http://localhost:9000/speeches/${speechId}`, {
+        const response = await fetch(`https://speech-to-text-application.onrender.com/speeches/${speechId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

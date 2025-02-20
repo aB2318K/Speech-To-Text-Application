@@ -67,7 +67,7 @@ export default function Create() {
                 mediaRecorder.start(100); 
                 console.log('Recording started');
 
-                const socketInstance = io('http://localhost:9000');
+                const socketInstance = io('https://speech-to-text-application.onrender.com');
                 
                 socketInstance.on('connect', () => {
                     console.log('Connected to the server for audio streaming');
@@ -158,7 +158,7 @@ export default function Create() {
                     userId: userId
                 };
                 const token = localStorage.getItem('token');
-                const response = await fetch('http://localhost:9000/speeches', {
+                const response = await fetch('https://speech-to-text-application.onrender.com/speeches', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',

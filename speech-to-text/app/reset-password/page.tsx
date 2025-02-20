@@ -28,7 +28,7 @@ export default function Reset() {
         }
         if(isEmailValid) {
             try {
-                const response = await fetch(`http://localhost:9000/reset`, {
+                const response = await fetch(`https://speech-to-text-application.onrender.com/reset`, {
                   method: 'POST',
                   headers: { 
                     'Content-Type': 'application/json',

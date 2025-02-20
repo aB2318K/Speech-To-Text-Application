@@ -15,7 +15,7 @@ const fs = require('fs');
 const Buffer = require('buffer').Buffer;
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(cors({ origin: 'https://speech-to-text-application.onrender.com/' }));
 app.use(express.json());
 require('dotenv').config();
 
@@ -96,7 +96,8 @@ io.on('connection', (socket) => {
     });
 });
 
-mongoose.connect('mongodb://localhost:27017')
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI)
 .then(() => console.log('Connected to MongoDB'))
 .catch((error) => console.log('Error connecting to MongoDB:', error));
 
