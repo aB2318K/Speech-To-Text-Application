@@ -7,11 +7,9 @@ const User = require('./models/User');
 const Speech = require('./models/Speech');
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
-const multer = require('multer');
 const { createServer } = require('node:http'); 
 const { Server } = require('socket.io');
 const { SpeechClient } = require('@google-cloud/speech');
-const fs = require('fs');
 const Buffer = require('buffer').Buffer;
 
 const app = express();
